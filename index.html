@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-    	<meta charset="utf-8">
-    	<meta name="description" content="Your description goes here">
-    	<meta name="keywords" content="one, two, three">
-    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<title>My Library</title>
+<head>
+	<meta charset="utf-8" />
+	<meta name="description" content="Your description goes here" />
+	<meta name="keywords" content="one, two, three" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<!-- external CSS link -->
-		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/styles.css">
-	</head>
-	<body>
-		<!-- book card -->
-		<div class="book">
+	<title>My Library</title>
 
-		</div>
-		<script type="text/javascript" src="js/main.js"></script>
-	</body>
+	<!-- external CSS link -->
+	<link rel="stylesheet" href="css/normalize.css" />
+	<link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+	<!-- book card -->
+	<div class="book"></div>
+	<!-- new book button -->
+	<button class="addBookBtn">Add Book</button>
+	<!-- form to add book -->
+	<form action="#" class="addBookForm">
+		<input type="text" class="bookName" placeholder="Enter book name" />
+		<input type="text" class="bookAuthor" placeholder="Enter book's author" />
+		<input type="number" class="bookPages" placeholder="Enter number of pages in the book" />
+		<label for="statusFlag">yes</label>
+		<input type="radio" id="statusFlag" class="bookReadStatus" value="yes" name="statusOfRead"/>
+		<label for="statusFlag">no</label>
+		<input type="radio" id="statusFlag" class="bookReadStatus" value="no" name="statusOfRead"/>
+	</form>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+
 </html>

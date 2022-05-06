@@ -1,7 +1,8 @@
 // testing JS wiring
 // console.log('wired');
 let parent = document.querySelector('.book');
-
+let addBookBtn = document.querySelector('.addBookBtn');
+let addBookForm = document.querySelector('.addBookForm');
 // book constructor
 function bookMaker(name, author, numberOfPages, readStatus) {
         this.name = name;
@@ -54,4 +55,9 @@ library.forEach(item => {
 
         // adding 'newBook' as a child to the 'book' div in HTML
         parent.appendChild(newBook);
+})
+
+// making the form show/hide on button click
+addBookBtn.addEventListener('click',()=>{
+        addBookForm.classList.toggle('hide');
 })
