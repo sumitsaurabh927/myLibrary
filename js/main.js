@@ -3,6 +3,13 @@
 let parent = document.querySelector('.book');
 let addBookBtn = document.querySelector('.addBookBtn');
 let addBookForm = document.querySelector('.addBookForm');
+let submitBtn = document.querySelector('.submitBtn');
+let addBookName = document.querySelector('.bookName');
+let addBookAuthor = document.querySelector('.bookAuthor');
+let addBookPages = document.querySelector('.bookPages');
+let addBookStatusYes = document.querySelector('.bookReadStatusYes');
+let addBookStatusNo = document.querySelector('.bookReadStatusNo');
+
 // book constructor
 function bookMaker(name, author, numberOfPages, readStatus) {
         this.name = name;
@@ -26,7 +33,6 @@ const potterHead = new bookMaker('goblet of fire', 'j k rowling', 400, 'read');
 addToLibrary(potterHead);
 const winner = new bookMaker('you can win', 'Shiv Khera', 183, 'not read');
 addToLibrary(winner);
-
 
 // looping through the array
 library.forEach(item => {
@@ -58,6 +64,21 @@ library.forEach(item => {
 })
 
 // making the form show/hide on button click
-addBookBtn.addEventListener('click',()=>{
+addBookBtn.addEventListener('click', () => {
         addBookForm.classList.toggle('hide');
+})
+
+// submitting button action YO!!!
+submitBtn.addEventListener('click', () => {
+        let bookReadFlag = (addBookStatusYes.checked === true) ? addBookStatusYes.value : addBookStatusNo.value;
+
+        let name = addBookName.value;
+        let author = addBookAuthor.value;
+        let pages = addBookPages.value;
+        // console.log(bookReadFlag);
+        let newBookObject = new bookMaker(name,author,pages,bookReadFlag)
+        console.log(newBookObject);
+
+        addToLibrary(newBookObject);
+
 })

@@ -24,10 +24,15 @@
 		<input type="text" class="bookName" placeholder="Enter book name" />
 		<input type="text" class="bookAuthor" placeholder="Enter book's author" />
 		<input type="number" class="bookPages" placeholder="Enter number of pages in the book" />
-		<label for="statusFlag">yes</label>
-		<input type="radio" id="statusFlag" class="bookReadStatus" value="yes" name="statusOfRead"/>
-		<label for="statusFlag">no</label>
-		<input type="radio" id="statusFlag" class="bookReadStatus" value="no" name="statusOfRead"/>
+		<label for="statusFlag">yes
+			<input type="radio" id="statusFlag" class="bookReadStatusYes" value="yes" name="statusOfRead" />
+
+		</label>
+		<label for="statusFlag">no
+
+			<input type="radio" id="statusFlag" class="bookReadStatusNo" value="no" name="statusOfRead" />
+		</label>
+		<button class="submitBtn">Submit</button>
 	</form>
 	<script type="text/javascript" src="js/main.js"></script>
 </body>
