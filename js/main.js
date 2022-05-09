@@ -1,5 +1,6 @@
 // testing JS wiring
 // console.log('wired');
+let body = document.querySelector('body')
 let parent = document.querySelector(".book");
 let addBookBtn = document.querySelector(".addBookBtn");
 let addBookForm = document.querySelector(".addBookForm");
@@ -25,31 +26,18 @@ function BookMaker(name, author, numberOfPages, readStatus) {
 }
 
 // array of books and a function to add to that array
-const library = [{ name: 'wild west guns', author: 'imaginary', numberOfPages: 500, readStatus: 'yes' }];
+const library = [{ name: 'HP and the goble of fire', author: 'J K Rowling', numberOfPages: 845, readStatus: 'yes' }];
+
+// function to push books to library array
 const addToLibrary = (book) => {
         library.push(book);
         looper(library);
 }
 
-// random books to test thing out
-// creating books
-// const potterHead = new BookMaker("goblet of fire", "j k rowling", 400, "yes");
-// const winner = new BookMaker("you can win", "Shiv Khera", 183, "no");
-// // pushing books to the library array
-// addToLibrary(potterHead);
-// addToLibrary(winner);
 
-// const generator = (library) => {
-//         console.table(library)
-//         // console.log('run on refresh')
-// };
-// generator();
-// looping through the array
+// looping through the library array
 const looper = library => {
-        // console.log('library looper running')
-        // if(library === undefined && library.length>0){
-        //         console.log('non empty')
-        // }
+
         library.forEach((item) => {
                 // creating an element for each book 'item'
                 let newBook = document.createElement("div");
@@ -72,6 +60,15 @@ const looper = library => {
                 newBook.appendChild(newPages);
                 newBook.appendChild(newReadStatus);
 
+                // clearing 'book' div in HTML which will re-populated below
+                // parent.removeChild(newBook)
+                // console.log('running')
+                // if(parent.innerText){
+                //         console.log('non empty')
+                //         parent.innerHTML =""
+                // }
+
+
                 // adding 'newBook' as a child to the 'book' div in HTML
                 parent.appendChild(newBook);
         });
@@ -79,10 +76,6 @@ const looper = library => {
 looper(library);
 
 
-// making the form show/hide on button click
-addBookBtn.addEventListener("click", () => {
-        addBookForm.classList.toggle("hide");
-});
 
 // submitting button action YO!!!
 submitBtn.addEventListener("click", () => {
@@ -95,8 +88,17 @@ submitBtn.addEventListener("click", () => {
         let author = addBookAuthor.value;
         let pages = addBookPages.value;
         let newBookObject = new BookMaker(name, author, pages, bookReadFlag);
-        console.table(newBookObject);
+        // console.table(newBookObject);
+        // console.log(library)
 
+        // emptying html div with class 'book'
+        parent.innerHTML = ""
+
+        // adding book to library
         addToLibrary(newBookObject);
-        generator();
+});
+
+// making the form show/hide on button click
+addBookBtn.addEventListener("click", () => {
+        addBookForm.classList.toggle("hide");
 });
